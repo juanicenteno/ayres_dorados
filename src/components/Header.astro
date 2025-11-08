@@ -1,0 +1,45 @@
+---
+    import '../styles/header.css';
+---
+
+<header id="header">
+    <section class="content_header">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+        </svg>
+
+        <a href="/" class="logo_container">
+            <img src="/logo_black.png" alt="" />
+        </a>
+    </section>
+    <nav class="mobile_nav">
+        <ul class="list_link">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="https://wa.me/5492974038029" target="_blank">Reservas</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1aNodWEM1zUwQu_YA5gNKzmmsTOc49ewT?usp=sharing" target="_blank">Galería</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    const header = document.getElementById("header");
+    const btn = header?.querySelector("svg");
+    const mobile_nav = header?.querySelector(".mobile_nav");
+    const list_links = header?.querySelector(".list_link");
+    btn?.addEventListener("click", () => {
+        console.log("hola");
+        mobile_nav?.classList.toggle("active");
+        list_links?.classList.toggle("active");
+    });
+</script>
