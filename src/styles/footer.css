@@ -55,3 +55,17 @@
     height: 2rem;
     color: #bf9766;
 }
+
+@media (min-width: 768px) {
+    .contact_media {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container_footer {
+        width: 70%;
+    }
+}

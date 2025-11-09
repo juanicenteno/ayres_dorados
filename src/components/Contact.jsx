@@ -59,71 +59,70 @@ function Contact() {
     };
     return (
         <>
-            <form className="form" ref={form} onSubmit={sendEmail}>
-                <div className="input_container">
-                    <span>Nombre
-                        <small>*</small>
-                    </span>
-                    <input type="text" name="user_name" placeholder='Jhon Perez' required />
-                </div>
-                <div className="input_container">
-                    <span>Email
-                        <small>*</small>
-                    </span>
-                    <input type="email" name="user_email" placeholder='ayresdecalafate@gmail.com' required />
-                </div>
-                <div className="input_container">
-                    <span>Teléfono
-                        <small>*</small>
-                    </span>
-                    <input type="tel" name="user_phone" placeholder='+549123654489' required />
-                </div>
-                <div className="input_container">
-                    <span>Mensaje
-                        <small>*</small>
-                    </span>
-                    <textarea name="message" placeholder='Esribe tu mensaje aquí...' required></textarea>
-                </div>
-                <div className="input_container">
-                    <span>Check-In</span>
-                    <input name="user_checkin" type="date" />
-                </div>
-                <div className="input_container">
-                    <span>Check-Out</span>
-                    <input name="user_checkout" type="date" />
-                </div>
-
-                {!isLoading ? (
-                    <div className="submit_button">
-                        <input aria-label='enviar una consulta' type="submit" value="Enviar" style={{ cursor: "pointer" }} />
+                <form className="form" ref={form} onSubmit={sendEmail}>
+                    <div className="input_container">
+                        <span>Nombre
+                            <small>*</small>
+                        </span>
+                        <input type="text" name="user_name" placeholder='Jhon Perez' required />
                     </div>
-                ) : (
-                    <div className="spinner">
-                        <svg className="throbber" viewBox="0 0 100 100">
-                            <defs>
-                                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stopColor="#d4af3733" />   {/* tono más transparente */}
-                                    <stop offset="40%" stopColor="#d4af37cc" />  {/* tono medio */}
-                                    <stop offset="100%" stopColor="#d4af37" />   {/* tono sólido */}
-                                </linearGradient>
-                            </defs>
-                            <circle
-                                className="arc"
-                                cx="50"
-                                cy="50"
-                                r="40"
-                                stroke="url(#grad1)"
-                                fill="none"
-                            />
-                        </svg>
-
+                    <div className="input_container">
+                        <span>Email
+                            <small>*</small>
+                        </span>
+                        <input type="email" name="user_email" placeholder='ayresdecalafate@gmail.com' required />
                     </div>
-                )}
-            </form>
-            <Toaster
-                position="top-center"
-            />
-            
+                    <div className="input_container">
+                        <span>Teléfono
+                            <small>*</small>
+                        </span>
+                        <input type="tel" name="user_phone" placeholder='+549123654489' required />
+                    </div>
+                    <div className="input_container">
+                        <span>Mensaje
+                            <small>*</small>
+                        </span>
+                        <textarea name="message" placeholder='Esribe tu mensaje aquí...' required></textarea>
+                    </div>
+                    <div className="input_container">
+                        <span>Check-In</span>
+                        <input name="user_checkin" type="date" />
+                    </div>
+                    <div className="input_container">
+                        <span>Check-Out</span>
+                        <input name="user_checkout" type="date" />
+                    </div>
+
+                    {!isLoading ? (
+                        <div className="submit_button">
+                            <input aria-label='enviar una consulta' type="submit" value="Enviar" style={{ cursor: "pointer" }} />
+                        </div>
+                    ) : (
+                        <div className="spinner">
+                            <svg className="throbber" viewBox="0 0 100 100">
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stopColor="#d4af3733" />   {/* tono más transparente */}
+                                        <stop offset="40%" stopColor="#d4af37cc" />  {/* tono medio */}
+                                        <stop offset="100%" stopColor="#d4af37" />   {/* tono sólido */}
+                                    </linearGradient>
+                                </defs>
+                                <circle
+                                    className="arc"
+                                    cx="50"
+                                    cy="50"
+                                    r="40"
+                                    stroke="url(#grad1)"
+                                    fill="none"
+                                />
+                            </svg>
+
+                        </div>
+                    )}
+                </form>
+                <Toaster
+                    position="top-center"
+                />
         </>
     )
 }

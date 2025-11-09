@@ -13,6 +13,7 @@
     background-image: url("/header_image.webp");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -62,4 +63,10 @@ p {
     justify-content: center;
     margin-top: 3rem;
     color: #fff;
+}
+
+@media (min-width: 1024px){
+    .img_text{
+        width: 70%;
+    }
 }
