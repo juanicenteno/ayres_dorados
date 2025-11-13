@@ -63,6 +63,11 @@ p {
     justify-content: center;
     margin-top: 3rem;
     color: #fff;
+    transition: all .3s;
+}
+
+.reserve_btn:hover{
+    background-color: #896b47;
 }
 
 @media (min-width: 1024px){

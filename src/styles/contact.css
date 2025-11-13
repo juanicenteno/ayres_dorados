@@ -64,6 +64,7 @@
 .map_container {
     width: 90%;
     margin: 2rem auto;
+    box-shadow: 0px 0px 7px 4px #00000038;
 }
 
 .map_container iframe {
@@ -92,6 +93,11 @@
     animation:
         rotateOffset 0.9s linear infinite,
         growShrink 0.9s ease-in-out infinite;
+}
+
+.title_contact{
+    width: 90%;
+    margin: 4rem auto 0;
 }
 
 
