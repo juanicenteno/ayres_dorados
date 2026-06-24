@@ -1,36 +1,112 @@
-.home_muchText {
-    background-color: #323232;
-    padding: 3rem 0;
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+/* ─── Variables (mismas que habitaciones.css) ────────────────────── */
+:root {
+    --cream: #f7f4ef;
+    --stone: #e8e2d9;
+    --gold: #b08d57;
+    --gold-lt: #c9a96e;
+    --ink: #1e1c19;
+    --ink-60: rgba(30, 28, 25, 0.6);
+    --ink-30: rgba(30, 28, 25, 0.3);
+    --white: #ffffff;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+/* ════════════════════════════════════════════════════════════════════
+   SECCIÓN DESCRIPCIÓN
+════════════════════════════════════════════════════════════════════ */
+.home_muchText {
+    background-color: var(--cream);
+    padding: 4rem 0;
+    margin: 4rem 0;
+    position: relative;
+}
+
+
 
 .text_container {
     width: 90%;
-    margin: auto;
+    /* max-width: 720px; */
+    margin: 0 auto;
+    position: relative;
+}
+
+/* línea decorativa dorada a la izquierda del bloque */
+.text_container::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 0rem;
+    /* bottom: 4rem; */
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+/* eyebrow label encima del h2 */
+.text_container_eyebrow {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
 }
 
 .text_container h2 {
-    margin: 0;
-    color: #ffc362;
-    font-size: 26px;
-    margin-bottom: 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 1.5rem;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    width: max-content;
+}
+
+/* separador ornamental bajo el h2 */
+.text_container h2::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    margin-top: 1rem;
 }
 
 .text_container p {
-    color: #fff;
-    font-size: 14px;
+    font-family: 'Jost', sans-serif;
+    color: var(--ink-60);
+    font-size: 0.9rem;
+    line-height: 1.85;
+    font-weight: 300;
 }
 
-.img_text2 {
-    position: relative;
-    height: 35rem;
-    overflow: hidden;
-    background-color: #000;
+/* ════════════════════════════════════════════════════════════════════
+   WRAPPER IMAGEN + MAPA
+════════════════════════════════════════════════════════════════════ */
+.loacation_text_home {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
+/* ════════════════════════════════════════════════════════════════════
+   SECCIÓN IMAGEN CON TEXTO (habitaciones CTA)
+════════════════════════════════════════════════════════════════════ */
+.img_text2 {
+    position: relative;
+    min-height: 32rem;
+    overflow: hidden;
+    background-color: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* imagen de fondo */
 .img_text2::before {
     content: "";
     background-image: url("/img_hotel.webp");
@@ -38,95 +114,189 @@
     background-size: cover;
     background-position: center;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.4;
+    inset: 0;
+    opacity: 0.35;
+    transition: opacity 0.6s var(--ease), transform 0.8s var(--ease);
+}
+
+.img_text2:hover::before {
+    opacity: 0.28;
+    transform: scale(1.03);
+}
+
+/* vignette sutil en los bordes */
+.img_text2::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(30, 28, 25, 0.55) 100%);
+    pointer-events: none;
 }
 
 .text_rooms {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    position: relative;
+    z-index: 1;
     text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    width: 80%;
+    align-items: center;
+    gap: 1.25rem;
+    width: min(80%, 560px);
 }
 
+/* eyebrow */
 .text_rooms span {
-    color: #cecece;
-    font-size: 16px;
+    font-family: 'Jost', sans-serif;
+    color: var(--gold);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
 }
 
 .text_rooms h3 {
-    color: #fff;
-    font-size: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 300;
     margin: 0;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+}
+
+/* línea dorada decorativa bajo el h3 */
+.text_rooms h3::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+    margin: 0.9rem auto 0;
 }
 
 .text_rooms p {
-    color: #fff;
-    font-size: 14px;
+    font-family: 'Jost', sans-serif;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    font-weight: 300;
     margin: 0;
 }
 
+/* CTA link */
 .text_rooms a {
-    color: #ffc362;
-    font-size: 20px;
-    border-bottom: 2px solid;
-    margin-top: 1rem;
-    width: 12rem;
-    align-self: center;
-    cursor: pointer;
-    transition: all .3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 0.85rem 2rem;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+/* barrido dorado al hover */
+.text_rooms a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.4s var(--ease);
 }
 
 .text_rooms a:hover {
-    opacity: .8;
+    border-color: var(--gold);
+}
+
+.text_rooms a:hover::before {
+    transform: translateX(0);
+}
+
+.text_rooms a span {
+    position: relative;
+    z-index: 1;
+    /* hereda el font-size del padre, resetea el del eyebrow */
+    font-size: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   MAPA
+════════════════════════════════════════════════════════════════════ */
+.map_container_home {
+    overflow: hidden;
+    min-height: 320px;
 }
 
 .map_container_home iframe {
     width: 100%;
+    height: 100%;
+    min-height: 320px;
+    display: block;
+    border: 0;
+    filter: grayscale(30%) contrast(1.05);
+    transition: filter 0.4s var(--ease);
+}
+
+.map_container_home:hover iframe {
+    filter: grayscale(0%) contrast(1);
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+    .text_container h2 {
+        font-size: 2.5rem;
+    }
+
+    .text_rooms h3 {
+        font-size: 2.4rem;
+    }
 }
 
 @media (min-width: 1024px) {
     .home_muchText {
-        margin: 4rem 0;
-        padding: 4rem 0;
+        padding: 6rem 0;
+    }
+
+
+    .loacation_text_home {
+        flex-direction: row;
+        width: 90%;
+        margin: 0 auto 5rem;
+        gap: 0;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
     }
 
     .img_text2 {
-        height: 35  rem;
-        flex: 0 0 50%;
-    }
-
-    .text_container {
-        width: 70%;
-    }
-
-    .text_rooms {
-        width: 70%;
+        flex: 0 0 55%;
+        min-height: 38rem;
     }
 
     .map_container_home {
-        flex: 0 0 50%;
-        box-shadow: 0px 0px 7px 4px #00000038;
+        flex: 0 0 45%;
+        min-height: unset;
     }
 
     .map_container_home iframe {
-        height: 100%;
+        min-height: unset;
     }
+}
 
-    .loacation_text_home {
-        display: flex;
-        width: 90%;
-        margin: auto;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 4rem;
+@media (min-width: 1440px) {
+    .text_container h2 {
+        font-size: 2.8rem;
     }
 }

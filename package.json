@@ -3,19 +3,22 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.5.3",
     "@astrojs/react": "^4.4.2",
     "@emailjs/browser": "^4.4.1",
+    "@react-pdf/renderer": "^4.3.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "astro": "^5.15.4",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
+    "buffer": "^6.0.3",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-hot-toast": "^2.6.0"
   }
 }

@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+/* ─── Variables ─────────────────────────────────────────────────── */
+:root {
+    --cream: #f7f4ef;
+    --stone: #e8e2d9;
+    --gold: #b08d57;
+    --gold-lt: #c9a96e;
+    --ink: #1e1c19;
+    --ink-60: rgba(30, 28, 25, 0.6);
+    --ink-30: rgba(30, 28, 25, 0.3);
+    --green: #4a7c59;
+    --white: #ffffff;
+    --radius: 2px;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Layout de la lista ─────────────────────────────────────────── */
+#booking-rooms-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 4rem 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Jost', sans-serif;
+}
+
+/* ─── Card ───────────────────────────────────────────────────────── */
+.booking-room-item {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--stone);
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .06), 0 8px 24px rgba(0, 0, 0, .05);
+    transition: box-shadow 0.45s var(--ease), transform 0.45s var(--ease);
+}
+
+.booking-room-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .07), 0 20px 48px rgba(0, 0, 0, .10);
+    transform: translateY(-3px);
+}
+
+/* ─── Imagen ─────────────────────────────────────────────────────── */
+.booking-room-item picture {
+    position: relative;
+    width: 100%;
+    height: 55vw;
+    max-height: 340px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.booking-room-item picture::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 55%,
+            rgba(30, 28, 25, 0.22) 100%);
+    transition: opacity 0.45s var(--ease);
+}
+
+.booking-room-item:hover picture::after {
+    opacity: 0.7;
+}
+
+.booking-room-item picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s var(--ease);
+}
+
+.booking-room-item:hover picture img {
+    transform: scale(1.04);
+}
+
+/* ─── Descripción ────────────────────────────────────────────────── */
+.booking-room-item-desc {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.5rem .7rem;
+    gap: 1rem;
+    flex: 1;
+}
+
+.booking-room-item-desc article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* ─── Título ─────────────────────────────────────────────────────── */
+.booking-room-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+
+/* ─── Precio ─────────────────────────────────────────────────────── */
+.room-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+}
+
+.room-price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 300;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    line-height: 1;
+}
+
+.room-price-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+}
+
+/* ─── Separador ornamental ───────────────────────────────────────── */
+.room-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--gold);
+}
+
+.room-divider::before,
+.room-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold));
+}
+
+.room-divider::after {
+    background: linear-gradient(to left, transparent, var(--gold));
+}
+
+.room-divider span {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+}
+
+/* ─── Capacidad ──────────────────────────────────────────────────── */
+.room-size {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-60);
+}
+
+.room-size svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    stroke: var(--gold);
+    flex-shrink: 0;
+}
+
+/* ─── Íconos de comodidades ──────────────────────────────────────── */
+.room-items {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.room-items li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--stone);
+    border-radius: var(--radius);
+    transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.room-items li:hover {
+    border-color: var(--gold);
+    background: var(--cream);
+}
+
+.room-items svg {
+    fill: var(--ink-60);
+    width: 1rem;
+    height: 1rem;
+}
+
+/* ─── "Ver más comodidades" ──────────────────────────────────────── */
+.mas-ventajas {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    width: fit-content;
+    font-family: 'Jost', sans-serif;
+    transition: color 0.25s var(--ease);
+}
+
+.mas-ventajas::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.3s var(--ease);
+}
+
+.mas-ventajas:hover {
+    color: var(--gold-lt);
+}
+
+.mas-ventajas:hover::after {
+    width: 100%;
+}
+
+/* ─── Botón Reservar ─────────────────────────────────────────────── */
+.booking-room-item-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    margin-top: auto;
+    background: var(--ink);
+    color: var(--white);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.35s var(--ease);
+    text-decoration: none;
+}
+
+.booking-room-item-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-100%);
+    transition: transform 0.45s var(--ease);
+}
+
+.booking-room-item-link:hover::before {
+    transform: translateX(0);
+}
+
+.booking-room-item-link span,
+.booking-room-item-link svg {
+    position: relative;
+    z-index: 1;
+}
+
+.booking-room-item-link svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--white);
+    transition: transform 0.3s var(--ease);
+}
+
+.booking-room-item-link:hover svg {
+    transform: translateX(3px);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MODAL
+═══════════════════════════════════════════════════════════════════ */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 28, 25, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease);
+}
+
+.modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-box {
+    background: var(--white);
+    width: 100%;
+    max-width: 480px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: var(--radius);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, .2);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.4s var(--ease);
+}
+
+.modal-overlay.is-open .modal-box {
+    transform: translateY(0) scale(1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem 1.75rem 1.25rem;
+    border-bottom: 1px solid var(--stone);
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 1;
+}
+
+.modal-header h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.modal-header p {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin: 0.2rem 0 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: var(--ink-60);
+    transition: color 0.2s;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.modal-close:hover {
+    color: var(--ink);
+}
+
+.modal-close svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
+}
+
+.modal-body {
+    padding: 1.5rem 1.75rem;
+}
+
+.modal-category {
+    margin-bottom: 1.5rem;
+}
+
+.modal-category:last-child {
+    margin-bottom: 0;
+}
+
+.modal-category-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    font-family: 'Jost', sans-serif;
+    margin: 0 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--stone);
+}
+
+.modal-amenity-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+}
+
+.modal-amenity-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+}
+
+.modal-amenity-list li::before {
+    content: '';
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+    .booking-room-item {
+        flex-direction: row;
+        min-height: 280px;
+    }
+
+    .booking-room-item picture {
+        width: 42%;
+        height: auto;
+        max-height: none;
+        flex-shrink: 0;
+    }
+
+    .booking-room-item-desc {
+        padding: 2rem 2rem .7rem;
+        justify-content: center;
+    }
+
+    .booking-room-item h3 {
+        font-size: 1.9rem;
+    }
+
+    .booking-room-item-link {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    #booking-rooms-list-container {
+        padding: 4rem 1.25rem 0;
+    }
+
+    .booking-room-item {
+        flex-direction: column;
+        min-height: unset;
+    }
+
+    .booking-room-item picture {
+        width: 100%;
+        height: 260px;
+    }
+
+    .booking-room-item-desc {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .booking-room-item h3 {
+        font-size: 1.65rem;
+    }
+
+    .booking-room-item picture img {
+        object-position: 0 -25rem;
+    }
+}

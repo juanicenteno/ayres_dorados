@@ -76,7 +76,7 @@ function Contact() {
                         <span>Teléfono
                             <small>*</small>
                         </span>
-                        <input type="tel" name="user_phone" placeholder='+549123654489' required />
+                        <input type="tel" name="user_phone" placeholder='+54 9 3764 80-4006' required />
                     </div>
                     <div className="input_container">
                         <span>Mensaje

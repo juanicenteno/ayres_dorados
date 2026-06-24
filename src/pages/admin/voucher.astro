@@ -1,0 +1,15 @@
+---
+// src/pages/comercial/vouchers.astro
+import Layout from '../../layouts/Layout.astro';
+import GeneradorVoucher from '../../components/VoucherGenerator.jsx';
+export const prerender = false; // <--- AGREGA ESTO
+---
+
+<Layout title="Generador de Vouchers">
+  <main class="container mx-auto p-8 bg-gray-50 min-h-screen">
+    
+    {/* IMPORTANTE: Usar client:only="react" para evitar errores de SSR con react-pdf */}
+    <GeneradorVoucher client:only="react" />
+
+  </main>
+</Layout>

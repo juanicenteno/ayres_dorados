@@ -1,0 +1,182 @@
+/* Contenedor principal */
+.voucher-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Cabecera y Botón */
+.voucher-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.voucher-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.btn-descarga {
+  background-color: #111;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-descarga:hover {
+  background-color: #333;
+}
+
+.btn-descarga.btn-loading {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Secciones del formulario */
+.form-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  background-color: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+/* Sistema de Grillas */
+.form-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+/* Para inputs que necesiten ocupar doble espacio (ej. Dirección) */
+.span-2 {
+  grid-column: span 2;
+}
+
+/* Inputs y Labels */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.form-input,
+.form-textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: #111;
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+/* Responsividad básica para pantallas pequeñas */
+@media (min-width: 0px) {
+  .grid-2, .grid-4, .grid-5 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-2, .grid-4, .grid-5 {
+    grid-template-columns: 4fr;
+  }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .form-group{
+    width: 40%;
+  }
+}
+
+/* Layout Principal: Pantalla dividida */
+.layout-split {
+  display: flex;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  overflow: hidden; /* Evita scroll doble */
+  background-color: #f3f4f6;
+}
+
+/* Panel Izquierdo: Formulario con Scroll */
+.panel-formulario {
+  width: 50%;
+  overflow-y: auto; /* Solo este panel hace scroll */
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  background: white;
+}
+
+/* Panel Derecho: Visor PDF Fijo */
+.panel-preview {
+  width: 50%;
+  background-color: #525659; /* Color de fondo típico de visualizador PDF */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* El componente visor en sí */
+.visor-pdf {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Ajustes responsivos: En móvil se ponen uno debajo del otro */
+@media (max-width: 1024px) {
+  .layout-split {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
+  .panel-formulario, .panel-preview {
+    width: 100%;
+  }
+  .panel-preview {
+    height: 500px; /* Altura fija en móvil */
+  }
+}
+
+.panel-preview{
+  width: 100%;
+  height: 48rem;
+}
