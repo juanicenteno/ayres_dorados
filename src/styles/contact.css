@@ -95,9 +95,46 @@
         growShrink 0.9s ease-in-out infinite;
 }
 
-.title_contact{
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title_contact {
     width: 90%;
     margin: 4rem auto 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.title_contact h1 {
+    color: #1e1c19;
+    font-size: 28px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    margin: 0;
+}
+
+.title_contact h2 {
+    font-size: 18px;
+    color: #b08d57;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    margin: 0.5rem 0 0;
+}
+
+@media (min-width: 1024px) {
+    .title_contact h1 {
+        font-size: 38px;
+    }
+    .title_contact h2 {
+        font-size: 22px;
+    }
 }
 
 

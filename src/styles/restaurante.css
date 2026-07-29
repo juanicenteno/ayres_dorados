@@ -1,0 +1,468 @@
+/* ─── Variables (Consistentes con el resto de la web) ────────────────────── */
+:root {
+    --cream: #f7f4ef;
+    --stone: #e8e2d9;
+    --gold: #b08d57;
+    --gold-lt: #c9a96e;
+    --ink: #1e1c19;
+    --ink-80: rgba(30, 28, 25, 0.85);
+    --ink-60: rgba(30, 28, 25, 0.6);
+    --ink-30: rgba(30, 28, 25, 0.3);
+    --white: #ffffff;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Hero / Banner de Cabecera ────────────────────────────────────────── */
+.restaurant-hero {
+    width: 100%;
+    height: 60vh;
+    min-height: 350px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+.restaurant-hero::before {
+    content: "";
+    background-image: url("/restaurant2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    inset: 0;
+    opacity: 0.45;
+}
+
+.restaurant-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(30, 28, 25, 0.8) 100%);
+    pointer-events: none;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.restaurant-hero-text {
+    z-index: 1;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.restaurant-hero-text h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    color: var(--white);
+    font-weight: 300;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+}
+
+.restaurant-hero-text h1 span {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-lt);
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-hero-text p {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* ─── Sección Propuesta Gastronómica ───────────────────────────────────── */
+.restaurant-intro {
+    background-color: var(--cream);
+    padding: 5rem 0;
+    position: relative;
+}
+
+.restaurant-intro-container {
+    width: 90%;
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+}
+
+.restaurant-intro-content {
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.restaurant-intro-content::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -2rem;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: var(--gold);
+}
+
+.restaurant-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2rem;
+    margin-top: 0;
+}
+
+.restaurant-intro p {
+    font-family: 'Jost', sans-serif;
+    color: var(--ink-80);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    font-weight: 300;
+}
+
+.restaurant-intro-image {
+    width: 100%;
+    max-width: 550px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    aspect-ratio: 4 / 3;
+    display: flex;
+}
+
+.restaurant-intro-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--ease);
+}
+
+.restaurant-intro-image:hover img {
+    transform: scale(1.03);
+}
+
+/* ─── Sección Carta / Menú ──────────────────────────────────────────────── */
+.restaurant-menu {
+    background-color: #f3eee7; /* color de fondo de body */
+    padding: 6rem 0;
+}
+
+.restaurant-menu-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.restaurant-menu-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.restaurant-menu-title span {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.restaurant-menu-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: var(--ink);
+}
+
+.restaurant-menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+.restaurant-menu-category {
+    background: var(--cream);
+    padding: 3rem 2rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(176, 141, 87, 0.15);
+    position: relative;
+}
+
+.restaurant-menu-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--gold);
+}
+
+.restaurant-menu-category h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--stone);
+    padding-bottom: 1rem;
+}
+
+.restaurant-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+}
+
+.restaurant-menu-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.restaurant-menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.restaurant-menu-item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.restaurant-menu-item-connector {
+    flex: 1;
+    border-bottom: 1px dotted var(--ink-30);
+    height: 1px;
+}
+
+.restaurant-menu-item-price {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--gold);
+}
+
+.restaurant-menu-item-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    color: var(--ink-60);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+.restaurant-menu-note {
+    text-align: center;
+    margin-top: 3rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    color: var(--ink-60);
+    font-style: italic;
+}
+
+/* ─── Sección Info & Reservas ───────────────────────────────────────────── */
+.restaurant-info-section {
+    background-color: var(--cream);
+    padding: 6rem 0;
+}
+
+.restaurant-info-container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.restaurant-info-card {
+    flex: 1;
+    background: var(--white);
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    border: 1px solid var(--stone);
+}
+
+.restaurant-info-card svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    stroke: var(--gold);
+}
+
+.restaurant-info-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+}
+
+.restaurant-hours-table {
+    width: 100%;
+    max-width: 320px;
+    margin: 0.5rem 0;
+    border-collapse: collapse;
+}
+
+.restaurant-hours-table td {
+    padding: 0.6rem 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink-80);
+}
+
+.restaurant-hours-table tr:not(:last-child) td {
+    border-bottom: 1px solid var(--cream);
+}
+
+.restaurant-hours-table td.day {
+    font-weight: 500;
+    text-align: left;
+}
+
+.restaurant-hours-table td.time {
+    text-align: right;
+    color: var(--gold);
+}
+
+.restaurant-info-card p {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    color: var(--ink-60);
+    line-height: 1.6;
+    max-width: 380px;
+}
+
+.restaurant-reserve-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--white);
+    background-color: var(--gold);
+    text-decoration: none;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gold);
+    transition: all 0.4s var(--ease);
+}
+
+.restaurant-reserve-btn:hover {
+    background-color: transparent;
+    color: var(--gold);
+}
+
+.restaurant-reserve-btn svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+    stroke: none;
+    transition: transform 0.3s;
+}
+
+.restaurant-reserve-btn:hover svg {
+    transform: scale(1.1);
+}
+
+/* ─── Responsive ────────────────────── */
+@media (min-width: 768px) {
+    .restaurant-hero {
+        height: 70vh;
+    }
+    
+    .restaurant-hero-text h1 {
+        font-size: 3.8rem;
+    }
+    
+    .restaurant-intro h2 {
+        font-size: 2.8rem;
+    }
+    
+    .restaurant-menu-category {
+        padding: 4rem 3rem;
+    }
+    
+    .restaurant-info-card {
+        padding: 4rem 3rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .restaurant-intro {
+        padding: 7rem 0;
+    }
+
+    .restaurant-intro-container {
+        flex-direction: row;
+        max-width: 1200px;
+        gap: 5rem;
+        align-items: center;
+    }
+
+    .restaurant-intro-content {
+        flex: 1;
+        text-align: left;
+    }
+
+    .restaurant-intro-content::before {
+        left: 0;
+        transform: none;
+    }
+
+    .restaurant-intro-image {
+        flex: 1;
+        max-width: none;
+    }
+
+    .restaurant-menu-grid {
+        gap: 3rem;
+    }
+    
+    .restaurant-info-container {
+        flex-direction: row;
+        gap: 3rem;
+    }
+}

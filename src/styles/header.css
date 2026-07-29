@@ -47,13 +47,14 @@
  }
 
  .mobile_nav.active {
-     height: 7rem;
-     padding: 2rem 0;
-     color: #fff;
-     background-color: #323232;
-     transition: all 0.3s ease-in-out;
-     z-index: 2;
- }
+      height: auto;
+      min-height: 7rem;
+      padding: 1.5rem 0;
+      color: #fff;
+      background-color: #323232;
+      transition: all 0.3s ease-in-out;
+      z-index: 2;
+  }
 
  .list_link {
      list-style: none;
@@ -107,6 +108,17 @@
      .list_link_desktop li a:hover {
          opacity: .6;
      }
+
+      .list_link_desktop li a.active {
+          color: #b08d57;
+          border-bottom: 2px solid #b08d57;
+          padding-bottom: 0.25rem;
+      }
+
+      .list_link li a.active {
+          color: #bf9766;
+          font-weight: 600;
+      }
 
      .content_header {
          width: 70%;

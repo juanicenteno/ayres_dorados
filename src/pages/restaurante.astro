@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/restaurante.css';
+
+const menuItems = {
+    desayunos: [
+        { name: "Desayuno Ayres", price: "$6.500", desc: "Café o té, jugo de naranja exprimidio, tostadas de pan de campo artesanal, mermeladas patagónicas caseras y manteca." },
+        { name: "Desayuno Patagónico", price: "$8.500", desc: "Infusión a elección, huevos revueltos con panceta ahumada artesanal, tostón de masa madre con palta y frutos rojos frescos." },
+        { name: "Tostón de Campo & Salmón", price: "$9.000", desc: "Pan de campo tostado con queso crema de hierbas, finas láminas de salmón ahumado y rúcula fresca." },
+        { name: "Yogur & Granola Casera", price: "$5.800", desc: "Yogur natural cremoso, granola horneada con miel de la zona, frutos rojos del bosque y gajos de frutas de estación." }
+    ],
+    almuerzos: [
+        { name: "Salmón al Grill", price: "$45.000", desc: "Acompañado de tortilla de papas, ensalada del día o papas fritas." },
+        { name: "Cazuela de Mariscos", price: "$42.000", desc: "Una combinación de mariscos frescos en una preparación llena de sabor." },
+        { name: "Arroz con Mariscos", price: "$38.000", desc: "Un clásico del mar, preparado con una cuidada selección de mariscos." },
+        { name: "Bife de Chorizo a Caballo", price: "$35.000", desc: "Con huevo frito y a elección: papas fritas, tortilla de papas o ensalada del día." },
+        { name: "Sorrentinos con Salsa de Mariscos", price: "$32.500", desc: "Pasta rellena acompañada por una cremosa salsa de mariscos." },
+        { name: "Milanesa a la Napolitana", price: "$29.500", desc: "Con papas fritas, ensalada del día o puré cremoso de papas." }
+    ]
+};
+---
+
+<Layout 
+    title="Restaurante Ayres Dorados | Sabores de la Costa Patagónica" 
+    description="Disfrutá de la mejor gastronomía frente al mar en Playas Doradas. Desayunos de especialidad, almuerzos, cenas y viandas patagónicas en un entorno natural único."
+>
+    <!-- ─── Hero / Portada ─────────────────────────────────── -->
+    <section class="restaurant-hero">
+        <div class="restaurant-hero-text">
+            <h1><span>Sabores Patagónicos</span>Restaurante Ayres Dorados</h1>
+            <p>Una experiencia gastronómica frente al mar, donde la naturaleza y el buen gusto se encuentran en cada plato.</p>
+        </div>
+    </section>
+
+    <!-- ─── Introducción / Propuesta ───────────────────────── -->
+    <section class="restaurant-intro">
+        <div class="restaurant-intro-container">
+            <div class="restaurant-intro-content">
+                <h2>Nuestra Propuesta</h2>
+                <p>
+                    El restaurante de Ayres Dorados Lodge es un espacio pensado para disfrutar de cada momento del día, combinando gastronomía, calidez y un entorno natural único.
+                    <br /><br />
+                    Ubicado frente al mar, ofrece una experiencia donde el paisaje se convierte en el complemento perfecto de cada comida. Ya sea para comenzar la mañana con un desayuno, compartir un almuerzo o disfrutar de una cena al atardecer, cada visita invita a relajarse y conectar con la tranquilidad de la costa.
+                    <br /><br />
+                    Con una propuesta gastronómica cuidadosamente elaborada, atención personalizada y vistas privilegiadas al mar, nuestro restaurante es el lugar ideal para vivir una experiencia inolvidable en la costa patagónica.
+                </p>
+            </div>
+            <div class="restaurant-intro-image">
+                <img src="/restaurant3.jpeg" alt="Propuesta gastronómica en Ayres Dorados Lodge" loading="lazy" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── Carta / Menú Web ────────────────────────────────── -->
+    <section class="restaurant-menu">
+        <div class="restaurant-menu-container">
+            <div class="restaurant-menu-title">
+                <span>Nuestra Selección</span>
+                <h2>Platos Destacados</h2>
+            </div>
+
+            <div class="restaurant-menu-grid">
+                <!-- Desayunos y Meriendas -->
+                <!-- <div class="restaurant-menu-category">
+                    <h3>Para Empezar el Día</h3>
+                    <div class="restaurant-menu-list">
+                        {menuItems.desayunos.map((item) => (
+                            <div class="restaurant-menu-item">
+                                <div class="restaurant-menu-item-header">
+                                    <span class="restaurant-menu-item-name">{item.name}</span>
+                                    <span class="restaurant-menu-item-connector"></span>
+                                    <span class="restaurant-menu-item-price">{item.price}</span>
+                                </div>
+                                <p class="restaurant-menu-item-desc">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div> -->
+
+                <!-- Almuerzos y Cenas -->
+                <div class="restaurant-menu-category">
+                    <h3>Sugerencias del Chef</h3>
+                    <div class="restaurant-menu-list">
+                        {menuItems.almuerzos.map((item) => (
+                            <div class="restaurant-menu-item">
+                                <div class="restaurant-menu-item-header">
+                                    <span class="restaurant-menu-item-name">{item.name}</span>
+                                    <span class="restaurant-menu-item-connector"></span>
+                                    <span class="restaurant-menu-item-price">{item.price}</span>
+                                </div>
+                                <p class="restaurant-menu-item-desc">{item.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <p class="restaurant-menu-note">* Contamos con opciones vegetarianas, veganas y libres de gluten (Sintacc). Por favor consulte a nuestro personal.</p>
+        </div>
+    </section>
+
+    <!-- ─── Info, Horarios y Reservas ──────────────────────── -->
+    <section class="restaurant-info-section">
+        <div class="restaurant-info-container">
+            <!-- Horarios -->
+            <div class="restaurant-info-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <h3>Horarios de Atención</h3>
+                <table class="restaurant-hours-table">
+                    <tr>
+                        <td class="day">Almuerzo</td>
+                        <td class="time">11:30 - 15:00 hs</td>
+                    </tr>
+                    <tr>
+                        <td class="day">Cena</td>
+                        <td class="time">19:30 - 23:00 hs</td>
+                    </tr>
+                </table>
+                <p>Abierto todos los días de la semana, tanto para huéspedes alojados en el Lodge como para visitantes particulares.</p>
+            </div>
+
+            <!-- Reservas -->
+            <div class="restaurant-info-card">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <h3>Reservar Mesa</h3>
+                <p>Para asegurar su lugar frente al mar o consultar por eventos especiales, puede realizar una reserva de forma directa por WhatsApp o llamándonos por teléfono.</p>
+                <a 
+                    href="https://wa.me/296615634170?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20mesa%20en%20el%20Restaurante%20Ayres%20Dorados." 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="restaurant-reserve-btn"
+                >
+                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.42 9.49c-.19-.09-1.1-.54-1.27-.61s-.29-.09-.42.1-.48.6-.59.73-.21.14-.4 0a5.13 5.13 0 0 1-1.49-.92 5.25 5.25 0 0 1-1-1.29c-.11-.18 0-.28.08-.38s.18-.21.28-.32a1.39 1.39 0 0 0 .18-.31.38.38 0 0 0 0-.33c0-.09-.42-1-.58-1.37s-.3-.32-.41-.32h-.4a.72.72 0 0 0-.5.23 2.1 2.1 0 0 0-.65 1.55A3.59 3.59 0 0 0 5 8.2 8.32 8.32 0 0 0 8.19 11c.44.19.78.3 1.05.39a2.53 2.53 0 0 0 1.17.07 1.93 1.93 0 0 0 1.26-.88 1.67 1.67 0 0 0 .11-.88c-.05-.07-.17-.12-.36-.21z"/>
+                        <path d="M13.29 2.68A7.36 7.36 0 0 0 8 .5a7.44 7.44 0 0 0-6.41 11.15l-1 3.85 3.94-1a7.4 7.4 0 0 0 3.55.9H8a7.44 7.44 0 0 0 5.29-12.72zM8 14.12a6.12 6.12 0 0 1-3.15-.87l-.22-.13-2.34.61.62-2.28-.14-.23a6.18 6.18 0 0 1 9.6-7.65 6.12 6.12 0 0 1 1.81 4.37A6.19 6.19 0 0 1 8 14.12z"/>
+                    </svg>
+                    <span>Reservar Mesa</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>

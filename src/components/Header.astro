@@ -1,5 +1,6 @@
 ---
     import '../styles/header.css';
+    const pathname = Astro.url.pathname.replace(/\/$/, "");
 ---
 
 <header id="header">
@@ -12,6 +13,9 @@
             stroke="currentColor"
             class="size-6"
             style="cursor: pointer;"
+            role="button"
+            aria-label="Abrir menú de navegación"
+            tabindex="0"
         >
             <path
                 stroke-linecap="round"
@@ -20,19 +24,21 @@
         </svg>
 
         <a href="/" class="logo_container">
-            <img src="/logo_black.png" alt="" />
+            <img src="/logo_black.png" alt="Ayres Dorados Lodge Logo" />
         </a>
         <ul class="list_link_desktop">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/" class={pathname === "" ? "active" : ""}>Inicio</a></li>
+            <li><a href="/restaurante" class={pathname === "/restaurante" ? "active" : ""}>Restaurante</a></li>
+            <li><a href="/contacto" class={pathname === "/contacto" ? "active" : ""}>Contacto</a></li>
             <li><a href="https://wa.me/5493764804006" target="_blank">Reservar</a></li>
             <li><a href="https://drive.google.com/drive/folders/1aNodWEM1zUwQu_YA5gNKzmmsTOc49ewT?usp=sharing" target="_blank">Galería</a></li>
         </ul>
     </section>
     <nav class="mobile_nav">
         <ul class="list_link">
-            <li><a href="/">Inicio</a></li>
-            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/" class={pathname === "" ? "active" : ""}>Inicio</a></li>
+            <li><a href="/restaurante" class={pathname === "/restaurante" ? "active" : ""}>Restaurante</a></li>
+            <li><a href="/contacto" class={pathname === "/contacto" ? "active" : ""}>Contacto</a></li>
             <li><a href="https://wa.me/5493764804006" target="_blank">Reservar</a></li>
             <li><a href="https://drive.google.com/drive/folders/1aNodWEM1zUwQu_YA5gNKzmmsTOc49ewT?usp=sharing" target="_blank">Galería</a></li>
         </ul>
@@ -44,8 +50,17 @@
     const btn = header?.querySelector("svg");
     const mobile_nav = header?.querySelector(".mobile_nav");
     const list_links = header?.querySelector(".list_link");
-    btn?.addEventListener("click", () => {
+    
+    function toggleMenu() {
         mobile_nav?.classList.toggle("active");
         list_links?.classList.toggle("active");
+    }
+
+    btn?.addEventListener("click", toggleMenu);
+    btn?.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleMenu();
+        }
     });
 </script>

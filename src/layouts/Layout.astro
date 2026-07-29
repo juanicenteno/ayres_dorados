@@ -2,6 +2,12 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/index.css";
+import { ClientRouter } from 'astro:transitions';
+
+const { 
+	title = "Ayres Dorados Lodge | Hotel boutique en Sierra Grande, Punta Colorada", 
+	description = "Ayres Dorados Lodge — hotel boutique frente al mar en Punta Colorada, Sierra Grande. Confort, atención personalizada y vistas únicas al Atlántico." 
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -17,22 +23,14 @@ import "../styles/index.css";
 			rel="stylesheet"
 		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>
-			Ayres Dorados Lodge | Hotel boutique en Sierra Grande, Punta
-			Colorada
-		</title>
-		<meta
-			name="description"
-			content="Ayres Dorados Lodge — hotel boutique frente al mar en Punta Colorada, Sierra Grande. Confort, atención personalizada y vistas únicas al Atlántico."
-		/>
+		<title>{title}</title>
+		<meta name="description" content={description} />
 		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Ayres Dorados Lodge" />
-		<meta
-			property="og:description"
-			content="Hotel boutique frente al mar en Punta Colorada, Sierra Grande."
-		/>
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
 		<meta property="og:image" content="/logo_black.png" />
 		<meta property="og:url" content="https://ayresdorados.com" />
+		<ClientRouter />
 	</head>
 	<body>
 		<Header />
