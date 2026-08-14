@@ -45,6 +45,6 @@ export function getBookingUrl({
   const lang = locale || "es";
   const hash = targetHash ? `#${targetHash.replace(/^#/, '')}` : "";
 
-  return `https://www.todoalojamiento.com/portal/${lang}?${params.toString()}${hash}`;
+  return `https://reservas.ayresdorados.com/portal/${lang}?${params.toString()}${hash}`;
 }
 
