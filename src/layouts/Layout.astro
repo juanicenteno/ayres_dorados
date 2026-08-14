@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Booking from "../components/Booking/Booking.jsx";
 import "../styles/index.css";
 import { ClientRouter } from 'astro:transitions';
 
@@ -35,6 +36,7 @@ const {
 	<body>
 		<Header />
 		<slot />
+		<Booking client:idle />
 		<Footer />
 		<div class="gtranslate_wrapper"></div>
 

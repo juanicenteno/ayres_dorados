@@ -46,21 +46,23 @@
 </header>
 
 <script>
-    const header = document.getElementById("header");
-    const btn = header?.querySelector("svg");
-    const mobile_nav = header?.querySelector(".mobile_nav");
-    const list_links = header?.querySelector(".list_link");
-    
-    function toggleMenu() {
-        mobile_nav?.classList.toggle("active");
-        list_links?.classList.toggle("active");
-    }
-
-    btn?.addEventListener("click", toggleMenu);
-    btn?.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            toggleMenu();
+    document.addEventListener('astro:page-load', () => {
+        const header = document.getElementById("header");
+        const btn = header?.querySelector("svg");
+        const mobile_nav = header?.querySelector(".mobile_nav");
+        const list_links = header?.querySelector(".list_link");
+        
+        function toggleMenu() {
+            mobile_nav?.classList.toggle("active");
+            list_links?.classList.toggle("active");
         }
+
+        btn?.addEventListener("click", toggleMenu);
+        btn?.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
     });
 </script>

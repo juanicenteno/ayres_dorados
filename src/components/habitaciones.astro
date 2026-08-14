@@ -150,50 +150,52 @@ const rooms = [
     ))}
 
 <script>
-    // Abrir modal
-    document.querySelectorAll<HTMLButtonElement>('.mas-ventajas').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            const roomId = btn.dataset.room;
-            const modal = document.getElementById(`modal-${roomId}`);
-            if (modal) {
-                modal.classList.add('is-open');
-                document.body.style.overflow = 'hidden';
-            }
+    document.addEventListener('astro:page-load', () => {
+        // Abrir modal
+        document.querySelectorAll<HTMLButtonElement>('.mas-ventajas').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const roomId = btn.dataset.room;
+                const modal = document.getElementById(`modal-${roomId}`);
+                if (modal) {
+                    modal.classList.add('is-open');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
         });
-    });
 
-    // Cerrar con botón X
-    document.querySelectorAll<HTMLButtonElement>('.modal-close').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            closeModal(btn.dataset.close!);
+        // Cerrar con botón X
+        document.querySelectorAll<HTMLButtonElement>('.modal-close').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                closeModal(btn.dataset.close!);
+            });
         });
-    });
 
-    // Cerrar haciendo click en el overlay
-    document.querySelectorAll<HTMLElement>('.modal-overlay').forEach((overlay) => {
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
-                overlay.classList.remove('is-open');
+        // Cerrar haciendo click en el overlay
+        document.querySelectorAll<HTMLElement>('.modal-overlay').forEach((overlay) => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Cerrar con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay.is-open').forEach((m) => {
+                    m.classList.remove('is-open');
+                });
                 document.body.style.overflow = '';
             }
         });
-    });
 
-    // Cerrar con Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            document.querySelectorAll('.modal-overlay.is-open').forEach((m) => {
-                m.classList.remove('is-open');
-            });
-            document.body.style.overflow = '';
+        function closeModal(roomId: string) {
+            const modal = document.getElementById(`modal-${roomId}`);
+            if (modal) {
+                modal.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
         }
     });
-
-    function closeModal(roomId: string) {
-        const modal = document.getElementById(`modal-${roomId}`);
-        if (modal) {
-            modal.classList.remove('is-open');
-            document.body.style.overflow = '';
-        }
-    }
 </script>
