@@ -1,5 +1,6 @@
 ---
 import "../styles/habitaciones.css";
+import FitBanner from "./FitBanner.astro";
 
 const rooms = [
     {
@@ -22,6 +23,7 @@ const rooms = [
 ---
 
     <section id="booking-rooms-list-container">
+        <FitBanner />
         {rooms.map((room) => (
             <article class="booking-room-item">
                 <picture>

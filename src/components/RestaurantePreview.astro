@@ -1,5 +1,13 @@
 ---
 import '../styles/restaurante_preview.css';
+import AutoCarousel from './Carousel/AutoCarousel.jsx';
+
+// Imágenes configurables para el carrusel de gastronomía
+const restaurantImages = [
+    { src: '/restaurant1.png', alt: 'Restaurante de Ayres Dorados Lodge frente al mar' },
+    { src: '/restaurant2.png', alt: 'Platos y especialidades patagónicas' },
+    { src: '/restaurant3.jpeg', alt: 'Ambiente y propuesta gastronómica' },
+];
 ---
 
 <section id="restaurant-preview" class="restaurant-preview-section">
@@ -17,7 +25,7 @@ import '../styles/restaurante_preview.css';
             </a>
         </div>
         <div class="restaurant-preview-image">
-            <img src="/restaurant1.png" alt="Restaurante de Ayres Dorados Lodge frente al mar" loading="lazy" />
+            <AutoCarousel client:visible images={restaurantImages} delay={3500} />
             <div class="image-overlay"></div>
         </div>
     </div>

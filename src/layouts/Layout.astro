@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Booking from "../components/Booking/Booking.jsx";
 import "../styles/index.css";
+import "../styles/gtranslate.css";
 import { ClientRouter } from 'astro:transitions';
 
 const { 
@@ -39,7 +40,7 @@ const {
 		<slot />
 		<Booking client:idle />
 		<Footer />
-		<div class="gtranslate_wrapper"></div>
+		<div class="gtranslate_wrapper" transition:persist="gtranslate"></div>
 
 		<script is:inline>
 			window.gtranslateSettings = {
@@ -53,8 +54,32 @@ const {
 			};
 		</script>
 
-		<script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer
-		></script>
+		<script is:inline src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
+
+		<script>
+			document.addEventListener('astro:page-load', () => {
+				const wrapper = document.querySelector('.gtranslate_wrapper');
+				// Si el wrapper no tiene el widget inyectado, cargar el script
+				if (wrapper && !wrapper.querySelector('#gt_float_wrapper')) {
+					const s = document.createElement('script');
+					s.src = 'https://cdn.gtranslate.net/widgets/latest/float.js';
+					s.defer = true;
+					document.body.appendChild(s);
+				}
+
+				// Si el usuario navegó teniendo otro idioma seleccionado, re-traducir la nueva página
+				try {
+					const stored = JSON.parse(localStorage.getItem('__GT_TRANSLATE_LANGS') || '{}');
+					if (stored && stored.tgtLang && stored.tgtLang !== 'es') {
+						if (typeof (window as any).doGTranslate === 'function') {
+							(window as any).doGTranslate(`es|${stored.tgtLang}`);
+						}
+					}
+				} catch (e) {
+					// Ignorar errores de acceso a localStorage
+				}
+			});
+		</script>
 	</body>
 </html>
 

@@ -1,0 +1,201 @@
+/* ─── Variables ────────────────────── */
+:root {
+    --cream: #f7f4ef;
+    --stone: #e8e2d9;
+    --gold: #b08d57;
+    --gold-lt: #c9a96e;
+    --ink: #1e1c19;
+    --ink-60: rgba(30, 28, 25, 0.6);
+    --ink-30: rgba(30, 28, 25, 0.3);
+    --white: #ffffff;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-preview-section {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    margin: 4rem 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Carrusel de fondo a pantalla completa dentro de la sección */
+.gallery-preview-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.gallery-preview-carousel {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-preview-bg .embla-auto__img {
+    filter: brightness(0.88);
+}
+
+/* Overlay sutil para realzar el contraste */
+.gallery-preview-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(24, 21, 18, 0.65) 0%,
+        rgba(24, 21, 18, 0.35) 50%,
+        rgba(24, 21, 18, 0.55) 100%
+    );
+    pointer-events: none;
+}
+
+/* Contenedor del contenido */
+.gallery-preview-container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+/* Tarjeta flotante con el estilo idéntico de restaurant-preview */
+.gallery-preview-card {
+    background-color: var(--cream);
+    padding: 3rem 3.5rem;
+    max-width: 580px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+    position: relative;
+    border-radius: 2px;
+}
+
+.gallery-preview-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    position: relative;
+}
+
+/* Línea decorativa dorada lateral */
+.gallery-preview-content::before {
+    content: '';
+    position: absolute;
+    left: -1.2rem;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+}
+
+.gallery-preview-eyebrow {
+    display: block;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.gallery-preview-content h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+}
+
+.gallery-preview-content h2::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--gold);
+    margin-top: 1rem;
+}
+
+.gallery-preview-content p {
+    font-family: 'Jost', sans-serif;
+    color: var(--ink-60);
+    font-size: 0.95rem;
+    line-height: 1.85;
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+
+/* Botón CTA con el mismo estilo y hover de restaurant-preview */
+.gallery-preview-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    padding: 0.95rem 2.2rem;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    transition: color 0.4s var(--ease), border-color 0.4s var(--ease);
+    z-index: 1;
+}
+
+.gallery-preview-cta-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: translateX(-101%);
+    transition: transform 0.4s var(--ease);
+    z-index: -1;
+}
+
+.gallery-preview-cta-btn:hover {
+    color: var(--white);
+    border-color: var(--gold);
+}
+
+.gallery-preview-cta-btn:hover::before {
+    transform: translateX(0);
+}
+
+/* ─── Responsive ────────────────────── */
+@media (min-width: 768px) {
+    .gallery-preview-content h2 {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-preview-section {
+        min-height: 480px;
+        margin: 3rem 0;
+    }
+
+    .gallery-preview-container {
+        width: 90%;
+        padding: 2rem 0;
+        justify-content: center;
+    }
+
+    .gallery-preview-card {
+        padding: 2.2rem 1.8rem;
+        width: 100%;
+    }
+
+    .gallery-preview-content h2 {
+        font-size: 1.9rem;
+    }
+}

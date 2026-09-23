@@ -1,9 +1,52 @@
 ---
     import '../styles/header.css';
     const pathname = Astro.url.pathname.replace(/\/$/, "");
+    const fitHref = (pathname === "" || pathname === "/") ? "#fit-promo" : "/#fit-promo";
 ---
 
-<header id="header">
+<div class="header_wrapper">
+    <a href={fitHref} class="marquee_bar" aria-label="FIT Argentina 2026">
+        <div class="marquee_track">
+            <div class="marquee_group">
+                <span class="marquee_logo_badge">
+                    <img src="/images/fit.png" alt="FIT 2026" class="marquee_logo_img" />
+                </span>
+                <span class="marquee_highlight">FIT 2026</span>
+                <span>¡Estaremos presentes en FIT Argentina 2026!</span>
+                <span class="marquee_sep">•</span>
+                <span class="marquee_badge">Del 26 al 29 de Septiembre · La Rural, Buenos Aires</span>
+                <span class="marquee_sep">•</span>
+                <span class="marquee_stand_badge">📍 Stand Nac – 1012</span>
+                <span class="marquee_sep">•</span>
+            </div>
+            <div class="marquee_group" aria-hidden="true">
+                <span class="marquee_logo_badge">
+                    <img src="/images/fit.png" alt="FIT 2026" class="marquee_logo_img" />
+                </span>
+                <span class="marquee_highlight">FIT 2026</span>
+                <span>¡Estaremos presentes en FIT Argentina 2026!</span>
+                <span class="marquee_sep">•</span>
+                <span class="marquee_badge">Del 26 al 29 de Septiembre · La Rural, Buenos Aires</span>
+                <span class="marquee_sep">•</span>
+                <span class="marquee_stand_badge">📍 Stand Nac – 1012</span>
+                <span class="marquee_sep">•</span>
+            </div>
+            <div class="marquee_group" aria-hidden="true">
+                <span class="marquee_logo_badge">
+                    <img src="/images/fit.png" alt="FIT 2026" class="marquee_logo_img" />
+                </span>
+                <span class="marquee_highlight">FIT 2026</span>
+                <span>¡Estaremos presentes en FIT Argentina 2026!</span>
+                <span class="marquee_sep">•</span>
+                <span class="marquee_badge">Del 26 al 29 de Septiembre · La Rural, Buenos Aires</span>
+                <span class="marquee_sep">•</span>
+                <span class="marquee_stand_badge">📍 Stand Nac – 1012</span>
+                <span class="marquee_sep">•</span>
+            </div>
+        </div>
+    </a>
+
+    <header id="header">
     <section class="content_header">
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +73,8 @@
             <li><a href="/" class={pathname === "" ? "active" : ""}>Inicio</a></li>
             <li><a href="/restaurante" class={pathname === "/restaurante" ? "active" : ""}>Restaurante</a></li>
             <li><a href="/contacto" class={pathname === "/contacto" ? "active" : ""}>Contacto</a></li>
-            <li><a href="https://wa.me/5493764804006" target="_blank">Reservar</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1aNodWEM1zUwQu_YA5gNKzmmsTOc49ewT?usp=sharing" target="_blank">Galería</a></li>
+            <li><a href="https://reservas.ayresdorados.com" target="_blank">Reservar</a></li>
+            <li><a href="/galeria" class={pathname === "/galeria" ? "active" : ""}>Galería</a></li>
         </ul>
     </section>
     <nav class="mobile_nav">
@@ -39,11 +82,12 @@
             <li><a href="/" class={pathname === "" ? "active" : ""}>Inicio</a></li>
             <li><a href="/restaurante" class={pathname === "/restaurante" ? "active" : ""}>Restaurante</a></li>
             <li><a href="/contacto" class={pathname === "/contacto" ? "active" : ""}>Contacto</a></li>
-            <li><a href="https://wa.me/5493764804006" target="_blank">Reservar</a></li>
-            <li><a href="https://drive.google.com/drive/folders/1aNodWEM1zUwQu_YA5gNKzmmsTOc49ewT?usp=sharing" target="_blank">Galería</a></li>
+            <li><a href="https://reservas.ayresdorados.com" target="_blank">Reservar</a></li>
+            <li><a href="/galeria" class={pathname === "/galeria" ? "active" : ""}>Galería</a></li>
         </ul>
     </nav>
 </header>
+</div>
 
 <script>
     document.addEventListener('astro:page-load', () => {

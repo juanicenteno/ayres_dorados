@@ -1,0 +1,46 @@
+---
+import '../styles/gallery_preview.css';
+import AutoCarousel from './Carousel/AutoCarousel.jsx';
+
+interface Props {
+    images?: Array<string | { src: string; alt?: string }>;
+}
+
+// Podés modificar, agregar o quitar imágenes fácilmente desde esta lista:
+const defaultGalleryImages = [
+    { src: '/gallery/pasteleria5.webp', alt: 'Nuestra Pastelería' },
+    { src: '/gallery/004820ea-a9b5-435f-8db9-5a7375e3bb2e.webp', alt: 'Instalaciones Ayres Dorados Lodge' },
+    { src: '/gallery/c12c61a7-f94d-47f3-aa67-8fa397be4998.webp', alt: 'Espacios y relax frente al mar' },
+    { src: '/gallery/pasteleria1.webp', alt: 'La mejor pastelería de la región' },
+    { src: '/gallery/rooms/d94dc567-7a99-498a-adf5-52b2366ef76f.webp', alt: 'Confort patagónico en Sierra Grande' },
+    { src: '/gallery/rooms/ec63344b-b6b9-48b5-9518-14cd5301e9f9.webp', alt: 'Detalles y calidez de nuestras suites' },
+];
+
+const { images = defaultGalleryImages } = Astro.props;
+---
+
+<section id="gallery-preview" class="gallery-preview-section">
+    <!-- Carrusel de fondo automático sin flechas -->
+    <div class="gallery-preview-bg">
+        <AutoCarousel client:visible images={images} delay={4000} className="gallery-preview-carousel" />
+        <div class="gallery-preview-overlay"></div>
+    </div>
+
+    <!-- Contenido con la estética de restaurant-preview -->
+    <div class="gallery-preview-container">
+        <article class="gallery-preview-card">
+            <div class="gallery-preview-content">
+                <span class="gallery-preview-eyebrow">Recorrido Visual</span>
+                <h2>Mirá Nuestra Galería</h2>
+                <p>
+                    Te invitamos a descubrir cada rincón de Ayres Dorados Lodge.
+                    Explorá nuestras habitaciones, los espacios comunes pensados para el descanso
+                    y los paisajes costeros que hacen de Punta Colorada un destino inigualable.
+                </p>
+                <a href="/galeria" class="gallery-preview-cta-btn">
+                    <span>Ver Galería Completa</span>
+                </a>
+            </div>
+        </article>
+    </div>
+</section>

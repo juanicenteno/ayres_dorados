@@ -1,0 +1,517 @@
+/* ════════════════════════════════════════════════════════════════════
+   BANNER DESTACADO: FIT ARGENTINA 2026 (Ayres Dorados Lodge)
+   ════════════════════════════════════════════════════════════════════ */
+.fit_promo {
+  --fit-navy: #141b22;
+  --fit-navy-dark: #0d1217;
+  --fit-gold: #b08d57;
+  --fit-gold-light: #c9a96e;
+  --fit-cream: #f4ede0;
+  width: 100%;
+  min-height: 34rem;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-align: left;
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(176, 141, 87, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12), 0 12px 36px rgba(0, 0, 0, 0.15);
+  font-family: 'Jost', sans-serif;
+  scroll-margin-top: 5rem;
+}
+
+.fit_promo__hero {
+  position: relative;
+  flex: 1;
+  min-height: 30rem;
+  overflow: hidden;
+}
+
+.fit_promo__heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+.fit_promo__heroScrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    112deg,
+    rgba(13, 18, 23, 0.96) 0%,
+    rgba(22, 29, 38, 0.90) 52%,
+    rgba(14, 19, 25, 0.94) 100%
+  );
+}
+
+.fit_promo__heroContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  min-height: 30rem;
+  padding: 1.5rem 1.75rem;
+  gap: 1.25rem;
+}
+
+.fit_promo__logosRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(176, 141, 87, 0.3);
+  gap: 0.75rem;
+}
+
+.fit_promo__logoAyres {
+  height: auto;
+  width: 5rem;
+  max-width: min(12rem, 45vw);
+  object-fit: cover;
+  display: block;
+}
+
+.fit_promo__badgesGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.fit_promo__fitLogoBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 0.2rem 0.55rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+}
+
+.fit_promo__fitLogoImg {
+  width: auto;
+  height: 1.6rem;
+  object-fit: contain;
+  display: block;
+}
+
+.fit_promo__standBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(176, 141, 87, 0.2);
+  border: 1px solid var(--fit-gold);
+  border-radius: 5px;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #f4ede0;
+  letter-spacing: 0.06em;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+.fit_promo__standPin {
+  font-size: 0.85rem;
+}
+
+.fit_promo__body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.75rem;
+  flex: 1;
+}
+
+.fit_promo__left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.fit_promo__headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fit_promo__eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fit-gold);
+}
+
+.fit_promo__title {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.fit_promo__tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 2.7vw, 1.25rem);
+  color: var(--fit-cream);
+  margin: 0;
+}
+
+.fit_promo__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0.2rem 0;
+  padding: 0;
+}
+
+.fit_promo__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(176, 141, 87, 0.35);
+  color: #f4ede0;
+  border-radius: 1.25rem;
+  padding: 0.32rem 0.75rem;
+  font-size: clamp(0.72rem, 2.2vw, 0.82rem);
+  font-weight: 600;
+  line-height: 1.2;
+  backdrop-filter: blur(4px);
+}
+
+.fit_promo__pill--stand {
+  background: rgba(176, 141, 87, 0.25);
+  border-color: var(--fit-gold);
+}
+
+.fit_promo__pillTextHighlight {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.fit_promo__pillIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: var(--fit-gold);
+}
+
+.fit_promo__pillIcon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.fit_promo__textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.fit_promo__desc {
+  font-size: clamp(0.78rem, 2.2vw, 0.88rem);
+  line-height: 1.5;
+  color: rgba(244, 237, 224, 0.94);
+  margin: 0;
+}
+
+.fit_promo__note {
+  font-size: clamp(0.74rem, 2.1vw, 0.84rem);
+  line-height: 1.45;
+  color: var(--fit-gold);
+  font-style: italic;
+  margin: 0;
+}
+
+.fit_promo__right {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.fit_promo__flyerCard {
+  position: relative;
+  width: clamp(7.5rem, 22vw, 10.5rem);
+  aspect-ratio: 9 / 16;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(176, 141, 87, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fit_promo__flyerCard:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 0 1.5px var(--fit-gold);
+}
+
+.fit_promo__flyerImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fit_promo__flyerBadge {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.35rem;
+  right: 0.35rem;
+  background: rgba(13, 18, 23, 0.92);
+  border: 1px solid var(--fit-gold);
+  border-radius: 4px;
+  padding: 0.22rem 0.3rem;
+  text-align: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(4px);
+}
+
+.fit_promo__ctaBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(176, 141, 87, 0.25);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.fit_promo__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--fit-gold);
+  color: #0d1217;
+  font-size: clamp(0.78rem, 2.3vw, 0.88rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.4rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+.fit_promo__cta:hover {
+  background: var(--fit-gold-light);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.fit_promo__ctaIcon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.fit_promo__contactLines {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex-wrap: wrap;
+  font-size: clamp(0.7rem, 2vw, 0.8rem);
+  font-weight: 500;
+}
+
+.fit_promo__contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #f4ede0;
+  text-decoration: none;
+  opacity: 0.92;
+  transition: color 0.2s, opacity 0.2s;
+}
+
+.fit_promo__contactLink svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--fit-gold);
+  flex-shrink: 0;
+}
+
+.fit_promo__contactLink:hover {
+  color: var(--fit-gold);
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.fit_promo__footer {
+  background: var(--fit-navy-dark);
+  border-top: 1px solid rgba(176, 141, 87, 0.3);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fit_promo__footerNote {
+  font-size: clamp(0.72rem, 2.1vw, 0.84rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--fit-gold);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 680px) {
+  .fit_promo__body {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .fit_promo__right {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .fit_promo__flyerCard {
+    width: 8rem;
+  }
+
+  .fit_promo__ctaBlock {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .fit_promo__cta {
+    width: 100%;
+    text-align: center;
+  }
+
+  .fit_promo__contactLines {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .fit_promo__heroContent {
+    padding: 1.75rem 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fit_promo {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    min-height: unset;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fit_promo__hero {
+    min-height: unset;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .fit_promo__heroContent {
+    min-height: unset;
+    flex: 1;
+    padding: 1.75rem 1.75rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.1rem;
+  }
+
+  .fit_promo__logosRow {
+    padding-bottom: 0.6rem;
+  }
+
+  .fit_promo__body {
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .fit_promo__title {
+    font-size: 1.55rem;
+  }
+
+  .fit_promo__tagline {
+    font-size: 1rem;
+  }
+
+  .fit_promo__flyerCard {
+    width: 8rem;
+  }
+
+  .fit_promo__desc {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .fit_promo__note {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .fit_promo__ctaBlock {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.75rem;
+  }
+
+  .fit_promo__cta {
+    width: 100%;
+    text-align: center;
+    padding: 0.95rem 1.5rem;
+  }
+
+  .fit_promo__contactLines {
+    justify-content: center;
+    gap: 0.9rem;
+    font-size: 0.75rem;
+  }
+
+  .fit_promo__footer {
+    padding: 0.75rem 1rem;
+  }
+
+  .fit_promo__footerNote {
+    font-size: 0.75rem;
+  }
+}

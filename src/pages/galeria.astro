@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Gallery from '../components/Gallery/Gallery.jsx';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Rutas a las carpetas de imágenes en public/
+const galleryDir = path.join(process.cwd(), 'public', 'gallery');
+const roomsDir = path.join(galleryDir, 'rooms');
+
+const validExtensions = new Set(['.webp', '.jpg', '.jpeg', '.png', '.avif']);
+
+interface GalleryImage {
+    src: string;
+    category: 'general' | 'rooms';
+}
+
+let generalImages: GalleryImage[] = [];
+let roomImages: GalleryImage[] = [];
+
+if (fs.existsSync(galleryDir)) {
+    generalImages = fs.readdirSync(galleryDir)
+        .filter((file) => {
+            const fullPath = path.join(galleryDir, file);
+            return fs.statSync(fullPath).isFile() && validExtensions.has(path.extname(file).toLowerCase());
+        })
+        .map((file) => ({
+            src: `/gallery/${encodeURIComponent(file)}`,
+            category: 'general' as const,
+        }));
+}
+
+if (fs.existsSync(roomsDir)) {
+    roomImages = fs.readdirSync(roomsDir)
+        .filter((file) => {
+            const fullPath = path.join(roomsDir, file);
+            return fs.statSync(fullPath).isFile() && validExtensions.has(path.extname(file).toLowerCase());
+        })
+        .map((file) => ({
+            src: `/gallery/rooms/${encodeURIComponent(file)}`,
+            category: 'rooms' as const,
+        }));
+}
+
+// Todas las imágenes combinadas (habitaciones + generales)
+const allImages: GalleryImage[] = [...roomImages, ...generalImages];
+---
+
+<Layout 
+    title="Galería de Fotos | Ayres Dorados Lodge" 
+    description="Descubrí las instalaciones, habitaciones y el entorno natural de Ayres Dorados Lodge en Punta Colorada, Sierra Grande."
+>
+    <main>
+        <Gallery client:load initialImages={allImages} />
+    </main>
+</Layout>
